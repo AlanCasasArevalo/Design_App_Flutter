@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class ComplexButtons extends StatelessWidget {
             child: Column(
               children: [
                 _headerTitle(),
+                _roundedButtons()
               ],
             ),
           )
@@ -108,4 +110,70 @@ class ComplexButtons extends StatelessWidget {
     );
   }
 
+  Widget _roundedButtons() {
+    return Table(
+      children: [
+        TableRow(
+          children: [
+            _roundedButtonBuilder(Colors.blue, Icons.border_all, 'General'),
+            _roundedButtonBuilder(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
+          ]
+        ),
+        TableRow(
+          children: [
+            _roundedButtonBuilder(Colors.blue, Icons.border_all, 'General'),
+            _roundedButtonBuilder(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
+          ]
+        ),
+        TableRow(
+          children: [
+            _roundedButtonBuilder(Colors.blue, Icons.border_all, 'General'),
+            _roundedButtonBuilder(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
+          ]
+        ),
+        TableRow(
+          children: [
+            _roundedButtonBuilder(Colors.blue, Icons.border_all, 'General'),
+            _roundedButtonBuilder(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
+          ]
+        ),
+        TableRow(
+          children: [
+            _roundedButtonBuilder(Colors.blue, Icons.border_all, 'General'),
+            _roundedButtonBuilder(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
+          ]
+        ),
+      ],
+    );
+  }
+
+  Widget _roundedButtonBuilder(Color color, IconData icon, String text) {
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: 10,
+          sigmaY: 10
+        ),
+        child: Container(
+          height: 180,
+          margin: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(62, 66, 107, 0.7),
+            borderRadius: BorderRadius.circular(20)
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CircleAvatar(
+                backgroundColor: color,
+                radius: 35,
+                child: Icon(icon, color: Colors.white, size: 30,),
+              ),
+              Text(text, style: TextStyle(color: color, fontSize: 20),)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
