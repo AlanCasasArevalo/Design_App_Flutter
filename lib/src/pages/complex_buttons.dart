@@ -18,6 +18,7 @@ class ComplexButtons extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: _bottomNavigationBar()
     );
   }
 
@@ -78,4 +79,27 @@ class ComplexButtons extends StatelessWidget {
       ),
     );
   }
+
+  Widget _bottomNavigationBar() {
+    return BottomNavigationBar(
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items: [
+        BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: ''
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.pie_chart_outlined),
+            label: ''
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.supervised_user_circle),
+            label: ''
+        ),
+      ],
+    );
+  }
+
+
 }
